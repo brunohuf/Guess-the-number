@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+body {
+    background-color: rgb(134, 170, 49);
+    font: normal 15pt arial;
+
+
+}
+header {
+    color: white;
+    font-style: bolder;
+    text-align: center; /* texto no meio */
+}
+section {
+    background-color: white;
+    color:black;
+    font: bolder 15pt arial;
+    border-radius: 10px; /* borda redonda */
+    padding: 15px; /* Preenchimento */
+    width: 500px;
+    margin: auto; /* Ficar no meio */
+    box-shadow: 5px 5px 10px black; /* Fazer sombras */
+ 
+}
+div#res {
+    text-align:center;
+    font: bolder 25pt normal;
+    color: red;
+}
+div {
+    text-align: left;
+    padding: 10px;
+}
+div#cor {
+    text-align:center;
+    font: bolder 25pt normal;
+    color: green;
+}
+
+</style>
+<header>  <h1> Guess the number    </h1></header>
+<section> 
+<input type="number" id="txt">
+<input type="button" value="Check" onclick="check()">
+
+<div id="cor"> </div> 
+<div id="res"> </div> 
+</section> 
+<div id="correct"> </div>
+<input type="button" value="Show answer?" onclick="showanser()">
+<body>
+    
+
+    <script>
+
+        var correct = window.document.getElementById('correct')
+        var correctNum = Math.floor(Math.random() * 100)
+        
+
+        function check()  {
+            var cor = window.document.getElementById('cor')
+            var answer = window.document.getElementById('txt').value 
+            var res = window.document.getElementById('res')
+            res.innerHTML = ''
+
+            
+           if (answer == correctNum) {
+                cor.innerHTML = ('Congratulations, you guess the number!')
+            } else if (answer > correctNum) {
+                res.innerHTML = ('It is a lower number, try again!')
+            } else if (answer < correctNum) {
+                res.innerHTML = ('It is a higher number, try again')
+            }
+            if (answer >= 100) {
+                window.alert ('ERROR, your number should be between 0 to 100')
+            }
+
+
+        }
+        function showanser() {
+            correct.innerHTML = `${correctNum}`
+
+        }
+        
+    </script>
+
+
+</body>
+</html>
